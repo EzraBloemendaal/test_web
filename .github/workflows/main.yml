@@ -3,17 +3,19 @@ name: dbt_documentation
 on:
   # Trigger the workflow on push or pull request,
   # but only for the main branch
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+
 
 env:
 
   platform: snowflake 
   DBT_PROFILES_DIR: ./
+  snowflake_account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+  snowflake_role: ${{ secrets.SNOWFLAKE_ROLE }}
+  snowflake_username: ${{ secrets.SNOWFLAKE_USER }}
+  snowflake_password: ${{ secrets.SNOWFLAKE_PASSWORD }}
+  snowflake_warehouse: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+  snowflake_database: ${{ secrets.SNOWFLAKE_DATABASE }}
+  snowflake_schema: ${{ secrets.SNOWFLAKE_SCHEMA }}
 
 jobs:
   scheduled_run:
