@@ -10,6 +10,11 @@ on:
     branches:
       - master
 
+env:
+
+  platform: snowflake 
+  DBT_PROFILES_DIR: ./
+
 jobs:
   scheduled_run:
     name: scheduled_run
