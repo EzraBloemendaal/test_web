@@ -1,4 +1,4 @@
-name: scheduled_run
+name: dbt_documentation
 
 on:
   # Trigger the workflow on push or pull request,
@@ -28,12 +28,13 @@ jobs:
           pip install dbt
           dbt --version
           
-      - name: test with eco
+      - name: test with echo
         run: |
           echo Tell me a joke...
           
       # Test environmental variables
       - name: dbt documentation
         run: |
+          echo generate and server the dbt documentation
           dbt docs generate
       
