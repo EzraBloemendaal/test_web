@@ -1,4 +1,34 @@
 # Profile.yml for github - with secret keys
 
 default:
+  target: dev
+  outputs:
+    dev:
+      
+      type: 'snowflake'
+      account: "{{ env_var('snowflake_account') }}"
 
+      # User/password auth
+      user: "{{ env_var('snowflake_username') }}"
+      password: "{{ env_var('snowflake_password') }}"
+
+      role:  "{{ env_var('snowflake_role') }}"
+      database: "{{ env_var('snowflake_database') }}"
+      warehouse: "{{ env_var('snowflake_warehouse') }}"
+      schema: "{{ env_var('snowflake_schema') }}"
+      threads: 200
+
+    prod: 
+
+      type: 'snowflake'
+      account: "{{ env_var('snowflake_account') }}"
+
+      # User/password auth
+      user: "{{ env_var('snowflake_username') }}"
+      password: "{{ env_var('snowflake_password') }}"
+
+      role:  "{{ env_var('snowflake_role') }}"
+      database: "{{ env_var('snowflake_database') }}"
+      warehouse: "{{ env_var('snowflake_warehouse') }}"
+      schema: "{{ env_var('snowflake_schema') }}"
+      threads: 200
