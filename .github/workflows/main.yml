@@ -1,0 +1,39 @@
+name: scheduled_run
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  scheduled_run:
+    name: scheduled_run
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@master
+
+      - uses: actions/setup-python@v1
+        with:
+          python-version: "3.8.x"
+
+      - name: Install dependencies
+        run: |
+          pip install dbt
+          dbt --version
+          
+      - name: test with eco
+        run: |
+          echo Tell me a joke...
+          
+      # Test environmental variables
+      - name: dbt documentation
+        run: |
+          dbt docs generate
+      
